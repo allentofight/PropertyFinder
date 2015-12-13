@@ -1,0 +1,11 @@
+#define DEVICE_NAME @"BHYF"
+
+-  (void)handshake{
+    SLLog(@"握手...");
+//    Byte bytes[] = {0x07, 0, 0x72, 0, 2, 0x40, 0xA5};
+            char c[] = {'t','o','B','H','Y','F'};
+            NSInteger length = sizeof(c)/sizeof(char);
+            SLLog(@"length = %ld", (long)length);
+            Byte bytes[] = {0x07, 0, 0x72, 0, 7, 0x40, c[0], c[1], c[2], c[3], c[4], c[5]};
+    [self sendBytes:bytes length:sizeof(bytes)/sizeof(Byte)];
+}
